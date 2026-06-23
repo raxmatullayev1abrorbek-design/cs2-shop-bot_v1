@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: cs2-shop-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: ADMIN_COMMAND
+        value: adminpanel
+      - key: CARD_INFO
+        sync: false
+      - key: GEMINI_API_KEYS
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cs2-shop-db
+          property: connectionString
+
+databases:
+  - name: cs2-shop-db
+    databaseName: cs2shop
+    plan: free

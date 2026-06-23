@@ -1,0 +1,40 @@
+{
+  "bot_token": "BOT_TOKENINGIZ",
+  "admins": [123456789],
+  "admin_command": "adminpanel",
+  "card_info": "Karta raqamini bu yerga kiriting",
+  "channel_id": "@kanalingiz",
+  "gemini_api_keys": [],
+  "services": {
+    "premium": {
+      "enabled": true,
+      "title": "Telegram Premium",
+      "plans": [
+        {"id": "1", "name": "1 oy", "price": 89000, "enabled": true},
+        {"id": "2", "name": "3 oy", "price": 240000, "enabled": true},
+        {"id": "3", "name": "6 oy", "price": 450000, "enabled": true},
+        {"id": "4", "name": "12 oy", "price": 850000, "enabled": true}
+      ]
+    },
+    "stars": {
+      "enabled": true,
+      "title": "Telegram Stars",
+      "plans": [
+        {"id": "1", "name": "50 ta", "price": 8000, "enabled": true},
+        {"id": "2", "name": "100 ta", "price": 15000, "enabled": true},
+        {"id": "3", "name": "250 ta", "price": 35000, "enabled": true},
+        {"id": "4", "name": "500 ta", "price": 65000, "enabled": true}
+      ]
+    },
+    "steam_topup": {
+      "enabled": true,
+      "title": "Steam balans",
+      "plans": [
+        {"id": "1", "name": "50 000 so'm", "price": 50000, "enabled": true},
+        {"id": "2", "name": "100 000 so'm", "price": 100000, "enabled": true},
+        {"id": "3", "name": "200 000 so'm", "price": 200000, "enabled": true},
+        {"id": "4", "name": "Boshqa summa", "price": 0, "enabled": true}
+      ]
+    }
+  }
+}

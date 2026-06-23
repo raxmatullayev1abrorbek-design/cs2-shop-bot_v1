@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.db
+shop.db
+.env
+config.json
+.venv/
+venv/
