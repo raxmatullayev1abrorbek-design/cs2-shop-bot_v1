@@ -21,7 +21,7 @@ def main_menu_keyboard(is_admin_user=False, has_contest=False):
             InlineKeyboardButton("🔑 Breloklar", callback_data="cat_charm"),
         ],
         [
-            InlineKeyboardButton("🤖 AI Maslahatchi", callback_data="ai_assistant"),
+            
             InlineKeyboardButton("🛎 Xizmatlar", callback_data="services_menu"),
         ],
         [

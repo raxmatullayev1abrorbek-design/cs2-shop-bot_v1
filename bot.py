@@ -257,24 +257,7 @@ async def show_skins_for_item(update: Update, context: ContextTypes.DEFAULT_TYPE
             return
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# AI ASSISTANT
-# ─────────────────────────────────────────────────────────────────────────────
 
-async def ai_assistant_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
-    await track_user(update)
-    await query.edit_message_text(
-        "🤖 <b>AI Maslahatchi</b>\n\n"
-        "Savolingizni yozing. Masalan:\n"
-        "• Qanday rangdagi skinlarni set qilib yig'ish mumkin?\n"
-        "• Desert Eagle uchun qizil skin topib ber\n"
-        "• Menda qora-oq set bor, nima qo'shsam yaxshi?\n\n"
-        "<i>Bekor qilish: /cancel</i>",
-        parse_mode="HTML",
-        reply_markup=back_button("back_main")
-    )
     return USER_WAITING_AI_QUESTION
 
 
@@ -312,7 +295,7 @@ async def ai_receive_question(update: Update, context: ContextTypes.DEFAULT_TYPE
     await update.message.reply_text(
         "Yana savol bering yoki menyuga qayting:",
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("🤖 Yana savol", callback_data="ai_assistant")],
+           
             [InlineKeyboardButton("🔙 Bosh menu", callback_data="back_main")],
         ])
     )
@@ -1878,12 +1861,7 @@ def build_app() -> Application:
         per_message=False,
     ))
 
-    app.add_handler(ConversationHandler(
-        entry_points=[CallbackQueryHandler(ai_assistant_start, pattern=r"^ai_assistant$")],
-        states={USER_WAITING_AI_QUESTION: [MessageHandler(filters.TEXT & ~filters.COMMAND, ai_receive_question)]},
-        fallbacks=[CommandHandler("cancel", lambda u, c: ConversationHandler.END)],
-        per_message=False,
-    ))
+
 
     app.add_handler(ConversationHandler(
         entry_points=[CallbackQueryHandler(user_contact_admin_start, pattern=r"^user_contact_admin$")],
