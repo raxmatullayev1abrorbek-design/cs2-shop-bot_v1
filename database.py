@@ -23,14 +23,17 @@ COLOR_KEYWORDS = {
 
 def _pg_connect():
     import pg8000.native
-    import urllib.parse
-    r = urllib.parse.urlparse(DATABASE_URL)
+    host = os.environ.get("DB_HOST", "")
+    port = int(os.environ.get("DB_PORT", "6543"))
+    database = os.environ.get("DB_NAME", "postgres")
+    user = os.environ.get("DB_USER", "")
+    password = os.environ.get("DB_PASSWORD", "")
     return pg8000.native.Connection(
-        host=r.hostname,
-        port=r.port or 5432,
-        database=r.path.lstrip("/"),
-        user=r.username,
-        password=r.password,
+        host=host,
+        port=port,
+        database=database,
+        user=user,
+        password=password,
         ssl_context=True,
     )
 
